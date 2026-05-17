@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { JobsService } from '../../services/jobs.service';
+import { ToastService } from 'src/app/shared/services/toast.service';
 
 @Component({
   selector: 'app-create-job',
@@ -10,7 +11,9 @@ import { JobsService } from '../../services/jobs.service';
 })
 export class CreateJobComponent {
 
-  constructor(private fb: FormBuilder, private jobsService: JobsService, private router: Router) { }
+  constructor(private fb: FormBuilder,
+    private jobsService: JobsService,
+    private router: Router, private toast: ToastService) { }
 
 
   jobForm = this.fb.group({
@@ -30,6 +33,8 @@ export class CreateJobComponent {
     this.jobsService.createJob(this.jobForm.value).subscribe(() => {
       this.router.navigate(['/jobs']);
     })
+
+    this.toast.show('JOB CREATED')
   }
 
 }

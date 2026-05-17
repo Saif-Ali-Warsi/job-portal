@@ -7,6 +7,7 @@ import { JobDetailsComponent } from './pages/job-details/job-details.component';
 import { CreateJobComponent } from './pages/create-job/create-job.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditJobComponent } from './pages/edit-job/edit-job.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { EditJobComponent } from './pages/edit-job/edit-job.component';
   imports: [
     CommonModule,
     JobsRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class JobsModule { }
