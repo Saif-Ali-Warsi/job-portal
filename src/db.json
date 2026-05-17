@@ -1,28 +1,37 @@
 {
-    "jobs": [
-        {
-            "id": 1,
-            "title": "Angular Developer",
-            "company": "Google",
-            "location": "Pune",
-            "salary": "12 LPA",
-            "description": "Angular frontend developer role"
-        },
-        {
-            "id": 2,
-            "title": "Frontend Engineer",
-            "company": "Microsoft",
-            "location": "Mumbai",
-            "salary": "15 LPA",
-            "description": "React and Angular developer"
-        },
-        {
-            "id": 3,
-            "title": "UI Developer",
-            "company": "Amazon",
-            "location": "Bangalore",
-            "salary": "18 LPA",
-            "description": "Frontend UI engineer"
-        }
-    ]
+  "jobs": [
+    {
+      "title": "Sr. Angular Developer",
+      "company": "Google Cloud",
+      "location": "Pune, MH",
+      "salary": "12.5 LPA",
+      "description": "Angular Sr. frontend developer role",
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "title": "Frontend Engineer",
+      "company": "Microsoft",
+      "location": "Mumbai",
+      "salary": "15 LPA",
+      "description": "React and Angular developer"
+    },
+    {
+      "id": "3",
+      "title": "UI Developer",
+      "company": "Amazon",
+      "location": "Bangalore",
+      "salary": "18 LPA",
+      "description": "Frontend UI engineer"
+    },
+    {
+      "title": "Backend Developer",
+      "company": "HCL",
+      "location": "Pune",
+      "salary": "90k",
+      "description": "Experience candidates need",
+      "id": "gkZcITW0zbU"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

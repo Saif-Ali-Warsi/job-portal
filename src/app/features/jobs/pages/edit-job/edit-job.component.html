@@ -1,0 +1,59 @@
+<div class="wrapper">
+  <form [formGroup]="jobForm" (ngSubmit)="onSubmit()">
+    <div class="form-field">
+      <input type="text" formControlName="title" placeholder="Title" />
+      <p
+        *ngIf="jobForm.controls.title.touched && jobForm.controls.title.invalid"
+      >
+        Title is Required
+      </p>
+    </div>
+    <div class="form-field">
+      <input type="text" formControlName="company" placeholder="Company" />
+      <p
+        *ngIf="
+          jobForm.controls.company.touched && jobForm.controls.company.invalid
+        "
+      >
+        Company is Required
+      </p>
+    </div>
+    <div class="form-field">
+      <input type="text" formControlName="location" placeholder="Location" />
+      <p
+        *ngIf="
+          jobForm.controls.location.touched && jobForm.controls.location.invalid
+        "
+      >
+        Location is Required
+      </p>
+    </div>
+    <div class="form-field">
+      <input type="text" formControlName="salary" placeholder="Salary" />
+      <p
+        *ngIf="
+          jobForm.controls.salary.touched && jobForm.controls.salary.invalid
+        "
+      >
+        Salary is Required
+      </p>
+    </div>
+    <div class="form-field">
+      <input
+        type="text"
+        formControlName="description"
+        placeholder="Description"
+      />
+      <p
+        *ngIf="
+          jobForm.controls.description.touched &&
+          jobForm.controls.description.invalid
+        "
+      >
+        Salary is Required
+      </p>
+    </div>
+
+    <button type="submit">Update Job</button>
+  </form>
+</div>

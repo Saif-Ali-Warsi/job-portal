@@ -1,13 +1,23 @@
+<button routerLink="/jobs/create">Create Job</button>
+
 <ng-container *ngFor="let job of jobs">
   <div class="job-card">
     <h2>{{ job.title }}</h2>
     <p>{{ job.company }}</p>
     <p>{{ job.location }}</p>
-    <button
-      class="btn-small no-padding no-border"
-      [routerLink]="['/jobs', job.id]"
-    >
-      View Details
-    </button>
+    <div class="btn-group">
+      <button
+        class="btn-small no-padding no-border"
+        [routerLink]="['/jobs', job.id]"
+      >
+        View Details
+      </button>
+      <button
+        class="btn-small no-padding no-border"
+        [routerLink]="['/jobs', job.id, 'edit']"
+      >
+        Edit
+      </button>
+    </div>
   </div>
 </ng-container>
