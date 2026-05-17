@@ -1,4 +1,11 @@
-<button routerLink="/jobs/create">Create Job</button>
+<div class="group-item">
+  <input
+    type="text"
+    [formControl]="searchControl"
+    placeholder="Search jobs..."
+  />
+  <button routerLink="/jobs/create">Create Job</button>
+</div>
 
 <ng-container *ngFor="let job of jobs">
   <div class="job-card">

@@ -34,4 +34,10 @@ export class JobsService {
     return this.http.delete(`${this.baseUrl}/${id}`)
   }
 
+  searchJobs(searchTerm: string) {
+    return this.http.get(
+      `${this.baseUrl}?q=${searchTerm}`
+    )
+  }
+
 }
