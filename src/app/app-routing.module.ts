@@ -8,21 +8,17 @@ import { ProfileComponent } from './pages/profile/profile.component';
 
 const routes: Routes = [
   {
-    path: '', component: HomeComponent
+    path: 'auth',
+    loadChildren: () => import('./features/auth/auth.module').then(m => m.AuthModule)
   },
   {
-    path: 'jobs', component: JobsComponent
+    path: 'jobs',
+    loadChildren: () => import('./features/jobs/jobs.module').then(m => m.JobsModule)
   },
   {
-    path: 'login', component: LoginComponent
-  },
-  {
-    path: 'register', component: RegisterComponent
-  },
-  {
-    path: 'profile', component: ProfileComponent
+    path: 'profile',
+    loadChildren: () => import('./features/profile/profile.module').then(m => m.ProfileModule)
   }
-
 ];
 
 @NgModule({
