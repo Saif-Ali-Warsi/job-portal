@@ -1,0 +1,15 @@
+nav {
+  display: flex;
+  gap: 20px;
+  background: black;
+  padding: 20px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.active {
+  color: yellow;
+}
