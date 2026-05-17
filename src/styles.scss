@@ -8,6 +8,10 @@ body {
   background-color: #262e2e;
 }
 
+.wrapper {
+  max-width: 500px;
+}
+
 input {
   font-size: 14px;
   color: #00ffff;
@@ -20,6 +24,7 @@ input {
 }
 
 button {
+  cursor: pointer;
   font-size: 15px;
   font-weight: 500;
   color: #00ffff;

@@ -1,1 +1,30 @@
-<p>login works!</p>
+<div class="wrapper">
+  <h2>Login</h2>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-field">
+      <input type="text" formControlName="email" placeholder="Email" />
+      <p
+        *ngIf="
+          loginForm.controls.email.touched && loginForm.controls.email.invalid
+        "
+      >
+        Invalid Email
+      </p>
+    </div>
+
+    <div class="form-field">
+      <input type="text" formControlName="password" placeholder="Password" />
+      <p
+        *ngIf="
+          loginForm.controls.password.touched &&
+          loginForm.controls.password.invalid
+        "
+      >
+        Invalid Password
+      </p>
+    </div>
+
+    <button type="submit">Login</button>
+  </form>
+</div>

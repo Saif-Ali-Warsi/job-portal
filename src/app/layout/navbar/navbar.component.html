@@ -6,7 +6,13 @@
     >Home</a
   >
   <a routerLink="/jobs" routerLinkActive="active">jobs</a>
-  <a routerLink="/auth/login" routerLinkActive="active">login</a>
-  <a routerLink="/auth/register" routerLinkActive="active">register</a>
-  <a routerLink="/profile" routerLinkActive="active">profile</a>
+  <ng-template #loggedOut>
+    <a routerLink="/auth/login" routerLinkActive="active">login</a>
+    <a routerLink="/auth/register" routerLinkActive="active">register</a>
+  </ng-template>
+
+  <ng-container *ngIf="currentUser$ | async; else loggedOut">
+    <a routerLink="/profile" routerLinkActive="active">profile</a>
+    <button (click)="logout()">Logout</button>
+  </ng-container>
 </nav>
