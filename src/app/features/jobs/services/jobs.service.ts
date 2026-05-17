@@ -30,4 +30,8 @@ export class JobsService {
     return this.http.put(`${this.baseUrl}/${id}`, jobData)
   }
 
+  deleteJob(id: string) {
+    return this.http.delete(`${this.baseUrl}/${id}`)
+  }
+
 }

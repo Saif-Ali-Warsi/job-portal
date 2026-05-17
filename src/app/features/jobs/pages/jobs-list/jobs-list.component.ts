@@ -25,4 +25,18 @@ export class JobsListComponent implements OnInit {
   }
 
 
+  deleteJob(id: any) {
+
+    const confirmed = confirm('Are you sure?');
+
+    if (!confirmed) {
+      return;
+    }
+
+    this.jobService.deleteJob(id).subscribe(() => {
+      this.loadJobs();
+    })
+
+  }
+
 }

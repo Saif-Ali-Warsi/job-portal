@@ -41,7 +41,7 @@ button {
   color: #00ffff;
   background: unset;
   padding: 5px 5px;
-  height: 35px;
+  height: 26px;
   min-width: 80px;
   border: 1px solid #00ffff;
 }
@@ -119,7 +119,12 @@ a {
 }
 
 .error-message {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   font-weight: 500;
+  margin: 10px 0 0;
+  color: #ff8b8b;
+}
+
+.danger {
   color: #ff8b8b;
 }

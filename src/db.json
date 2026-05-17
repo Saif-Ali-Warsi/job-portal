@@ -9,14 +9,6 @@
       "id": "1"
     },
     {
-      "id": "2",
-      "title": "Frontend Engineer",
-      "company": "Microsoft",
-      "location": "Mumbai",
-      "salary": "15 LPA",
-      "description": "React and Angular developer"
-    },
-    {
       "id": "3",
       "title": "UI Developer",
       "company": "Amazon",

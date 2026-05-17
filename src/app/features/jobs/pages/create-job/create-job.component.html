@@ -3,6 +3,7 @@
     <div class="form-field">
       <input type="text" formControlName="title" placeholder="Title" />
       <p
+        class="error-message"
         *ngIf="jobForm.controls.title.touched && jobForm.controls.title.invalid"
       >
         Title is Required
@@ -11,6 +12,7 @@
     <div class="form-field">
       <input type="text" formControlName="company" placeholder="Company" />
       <p
+        class="error-message"
         *ngIf="
           jobForm.controls.company.touched && jobForm.controls.company.invalid
         "
@@ -21,6 +23,7 @@
     <div class="form-field">
       <input type="text" formControlName="location" placeholder="Location" />
       <p
+        class="error-message"
         *ngIf="
           jobForm.controls.location.touched && jobForm.controls.location.invalid
         "
@@ -31,6 +34,7 @@
     <div class="form-field">
       <input type="text" formControlName="salary" placeholder="Salary" />
       <p
+        class="error-message"
         *ngIf="
           jobForm.controls.salary.touched && jobForm.controls.salary.invalid
         "
@@ -45,12 +49,13 @@
         placeholder="Description"
       />
       <p
+        class="error-message"
         *ngIf="
           jobForm.controls.description.touched &&
           jobForm.controls.description.invalid
         "
       >
-        Salary is Required
+        Description is Required
       </p>
     </div>
 
