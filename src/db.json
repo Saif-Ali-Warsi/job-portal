@@ -25,28 +25,12 @@
       "id": "gkZcITW0zbU"
     },
     {
-      "title": "q",
-      "company": "q",
-      "location": "q",
-      "salary": "q",
-      "description": "q",
-      "id": "S5FVhX_KYIo"
-    },
-    {
       "title": "a",
       "company": "a",
       "location": "a",
       "salary": "a",
       "description": "a",
-      "id": "LAbi6BXbV7k"
-    },
-    {
-      "title": "z",
-      "company": "z",
-      "location": "z",
-      "salary": "z",
-      "description": "z",
-      "id": "we-o3ZxWPr8"
+      "id": "A14HYpKr0gM"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
