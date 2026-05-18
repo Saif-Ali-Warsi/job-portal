@@ -7,6 +7,9 @@
   <p>{{ job.salary }}</p>
   <p>{{ job.description }}</p>
 </div>
-<button (click)="applyJob()" [disabled]="alreadyApplied">
-  {{ alreadyApplied ? "Already Applied" : "Apply Job" }}
-</button>
+<div class="btn-group">
+  <button (click)="applyJob()" [disabled]="alreadyApplied">
+    {{ alreadyApplied ? "Already Applied" : "Apply Job" }}
+  </button>
+  <button (click)="saveJob()">Save Job</button>
+</div>

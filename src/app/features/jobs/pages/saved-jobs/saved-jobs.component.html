@@ -1,0 +1,11 @@
+<h1>Saved Jobs</h1>
+
+<ng-container *ngFor="let savedJob of savedJobs">
+  <div class="job-card">
+    <p>{{ savedJob.jobId }}</p>
+    <p>{{ savedJob.candidateEmail }}</p>
+    <p>{{ savedJob.appliedAt }}</p>
+  </div>
+</ng-container>
+
+<app-empty-state *ngIf="savedJobs.length === 0"> </app-empty-state>

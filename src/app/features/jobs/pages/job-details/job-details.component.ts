@@ -5,7 +5,7 @@ import { Job } from '../../models/job.model';
 import { AuthService } from 'src/app/features/auth/services/auth.service';
 import { ToastService } from 'src/app/shared/services/toast.service';
 import { Subject } from 'rxjs';
-import { map, exhaustMap } from 'rxjs/operators';
+import { map, exhaustMap, concatMap } from 'rxjs/operators';
 @Component({
   selector: 'app-job-details',
   templateUrl: './job-details.component.html',
@@ -14,6 +14,7 @@ import { map, exhaustMap } from 'rxjs/operators';
 export class JobDetailsComponent implements OnInit {
 
   applyClick$ = new Subject<void>();
+  saveClick$ = new Subject<void>();
 
   job!: Job;
 
@@ -73,6 +74,23 @@ export class JobDetailsComponent implements OnInit {
         this.alreadyApplied = true;
 
       });
+
+    this.saveClick$.pipe(
+      concatMap(() => {
+        const currentUser = this.authService.currentUser.value;
+
+        const savedData = {
+          jobId: this.job.id,
+          candidateEmail:
+            currentUser?.email,
+          savedAt:
+            new Date().toISOString()
+        }
+        return this.jobService.saveJob(savedData);
+      })
+    ).subscribe(() => {
+      this.toast.show('Job Saved')
+    })
   }
 
   loadJob(id: string) {
@@ -101,10 +119,11 @@ export class JobDetailsComponent implements OnInit {
     })
   }
 
-
-
-
   applyJob() {
     this.applyClick$.next();
+  }
+
+  saveJob() {
+    this.saveClick$.next();
   }
 }

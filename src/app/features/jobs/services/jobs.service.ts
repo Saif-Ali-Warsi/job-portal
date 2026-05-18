@@ -50,4 +50,12 @@ export class JobsService {
     return this.http.get(`${environment.apiUrl}/applications`)
   }
 
+  saveJob(data: any) {
+    return this.http.post(`${environment.apiUrl}/savedJobs`, data)
+  }
+
+  getSavedJobs() {
+    return this.http.get(`${environment.apiUrl}/savedJobs`)
+  }
+
 }
