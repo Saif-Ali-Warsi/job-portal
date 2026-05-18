@@ -1,0 +1,24 @@
+<h1>Applicants</h1>
+
+<div *ngFor="let applicant of applicants" class="job-card">
+  <h3>
+    {{ applicant.jobTitle }}
+  </h3>
+
+  <p>
+    Company:
+    {{ applicant.company }}
+  </p>
+
+  <p>
+    Candidate:
+    {{ applicant.candidateEmail }}
+  </p>
+
+  <p>
+    Applied At:
+    {{ applicant.appliedAt }}
+  </p>
+</div>
+
+<app-empty-state *ngIf="applicants.length === 0"> </app-empty-state>

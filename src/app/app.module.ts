@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { SharedModule } from './shared/shared.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
+import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,10 @@ import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: LoadingInterceptor,
+    multi: true
+  }, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: ErrorInterceptor,
     multi: true
   }],
   bootstrap: [AppComponent]

@@ -6,6 +6,7 @@ import { CreateJobComponent } from './pages/create-job/create-job.component';
 import { EditJobComponent } from './pages/edit-job/edit-job.component';
 import { AppliedJobsComponent } from './pages/applied-jobs/applied-jobs.component';
 import { SavedJobsComponent } from './pages/saved-jobs/saved-jobs.component';
+import { ApplicantsComponent } from './pages/applicants/applicants.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: 'saved-jobs',
     component: SavedJobsComponent
+  },
+  {
+    path: 'applicants',
+    component: ApplicantsComponent
   },
   {
     path: ':id/edit',

@@ -10,6 +10,7 @@ import { EditJobComponent } from './pages/edit-job/edit-job.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AppliedJobsComponent } from './pages/applied-jobs/applied-jobs.component';
 import { SavedJobsComponent } from './pages/saved-jobs/saved-jobs.component';
+import { ApplicantsComponent } from './pages/applicants/applicants.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { SavedJobsComponent } from './pages/saved-jobs/saved-jobs.component';
     CreateJobComponent,
     EditJobComponent,
     AppliedJobsComponent,
-    SavedJobsComponent
+    SavedJobsComponent,
+    ApplicantsComponent
   ],
   imports: [
     CommonModule,
