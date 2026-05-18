@@ -8,6 +8,7 @@ import { CreateJobComponent } from './pages/create-job/create-job.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditJobComponent } from './pages/edit-job/edit-job.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { AppliedJobsComponent } from './pages/applied-jobs/applied-jobs.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     JobsListComponent,
     JobDetailsComponent,
     CreateJobComponent,
-    EditJobComponent
+    EditJobComponent,
+    AppliedJobsComponent
   ],
   imports: [
     CommonModule,

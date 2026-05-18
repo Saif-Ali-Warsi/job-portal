@@ -33,5 +33,21 @@
       "id": "A14HYpKr0gM"
     }
   ],
+  "applications": [
+    {
+      "id": "1",
+      "jobId": 2,
+      "candidateEmail": "saif@test.com",
+      "candidateName": "Saif",
+      "appliedAt": "2026-05-18"
+    },
+    {
+      "jobId": "1",
+      "candidateEmail": "saif@test.com",
+      "candidateName": "saif@test.com",
+      "appliedAt": "2026-05-18T10:01:47.183Z",
+      "id": "a9NMRpkUyio"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

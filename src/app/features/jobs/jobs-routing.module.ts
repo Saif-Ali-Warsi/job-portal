@@ -4,6 +4,7 @@ import { JobsListComponent } from './pages/jobs-list/jobs-list.component';
 import { JobDetailsComponent } from './pages/job-details/job-details.component';
 import { CreateJobComponent } from './pages/create-job/create-job.component';
 import { EditJobComponent } from './pages/edit-job/edit-job.component';
+import { AppliedJobsComponent } from './pages/applied-jobs/applied-jobs.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: 'create',
     component: CreateJobComponent
+  },
+  {
+    path: 'applied-jobs',
+    component: AppliedJobsComponent
   },
   {
     path: ':id/edit',

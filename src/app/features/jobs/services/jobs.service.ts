@@ -40,4 +40,14 @@ export class JobsService {
     )
   }
 
+  applyJob(applicationData: any) {
+    return this.http.post(
+      `${environment.apiUrl}/applications`, applicationData
+    )
+  }
+
+  getApplications() {
+    return this.http.get(`${environment.apiUrl}/applications`)
+  }
+
 }
