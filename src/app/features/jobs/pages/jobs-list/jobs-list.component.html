@@ -14,25 +14,29 @@
 
   <select [formControl]="companyControl">
     <option value="">All Companies</option>
-    <option value="Google">Google</option>
-    <option value="Microsoft">Microsoft</option>
-    <option value="Infosys">Infosys</option>
+    <option value="Google Cloud">Google Cloud</option>
+    <option value="Amazon">Amazon</option>
+    <option value="HCL">HCL</option>
   </select>
 
   <button routerLink="/jobs/create">Create Job</button>
-</div>
-
-<div>
-  <button (click)="bulkDelete()">Delete Selected</button>
+  <div>
+    <button (click)="bulkDelete()">Delete Selected</button>
+  </div>
 </div>
 
 <ng-container *ngFor="let job of jobs">
   <div class="job-card">
-    <div class="checkbox">
-      <input type="checkbox" (change)="toggleSelection(job.id)" />
+    <div class="delete-input">
+      <input
+        class="checkbox"
+        type="checkbox"
+        (change)="toggleSelection(job.id)"
+      />
+
+      <h2>{{ job.title }}</h2>
     </div>
 
-    <h2>{{ job.title }}</h2>
     <p>{{ job.company }}</p>
     <p>{{ job.location }}</p>
     <div class="btn-group">

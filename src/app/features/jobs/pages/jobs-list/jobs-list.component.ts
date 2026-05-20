@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { JobsService } from '../../services/jobs.service';
 import { Job } from '../../models/job.model';
 import { FormControl } from '@angular/forms';
-import { combineLatest, Subject, from } from 'rxjs';
+import { combineLatest, Subject, from, forkJoin } from 'rxjs';
 import { startWith, takeUntil, mergeMap } from 'rxjs/operators';
 import { ToastService } from 'src/app/shared/services/toast.service';
 
@@ -57,7 +57,7 @@ export class JobsListComponent implements OnInit, OnDestroy {
 
           job.company.toLowerCase().includes(searchText) || job.location.toLowerCase().includes(searchText)
 
-        const matchesLocation = !location || job.location === location;
+        const matchesLocation = !location || job.location.toLowerCase().includes(location.toLowerCase())
 
         const matchesCompany = !company || job.company === company;
 
@@ -112,16 +112,21 @@ export class JobsListComponent implements OnInit, OnDestroy {
       return;
     }
 
-
-
-    from(this.selectedJobsIds).pipe(
-      mergeMap((id: any) => {
+    const requests = this.selectedJobsIds.map(
+      (id: any) => {
         return this.jobService.deleteJob(id)
-      })
-    ).subscribe(() => {
+      }
+    )
+
+    forkJoin(requests).subscribe(() => {
       this.loadJobs();
+
+      this.selectedJobsIds = [];
+
       this.toast.show('Selected Jobs Deleted')
     })
+
+
   }
 
   ngOnDestroy(): void {

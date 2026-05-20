@@ -5,17 +5,53 @@
     [routerLinkActiveOptions]="{ exact: true }"
     >Home</a
   >
-  <a routerLink="/jobs" routerLinkActive="active">jobs</a>
-  <a routerLink="/jobs/applied-jobs" routerLinkActive="active">Applied Jobs</a>
-  <a routerLink="/jobs/saved-jobs" routerLinkActive="active">Saved Jobs</a>
-  <a routerLink="/jobs/applicants" routerLinkActive="active">Applicants</a>
+  <a
+    routerLink="/jobs"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    >jobs</a
+  >
+
   <ng-template #loggedOut>
-    <a routerLink="/auth/login" routerLinkActive="active">login</a>
-    <a routerLink="/auth/register" routerLinkActive="active">register</a>
+    <a
+      routerLink="/auth/login"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >login</a
+    >
+    <a
+      routerLink="/auth/register"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >register</a
+    >
   </ng-template>
 
   <ng-container *ngIf="currentUser$ | async; else loggedOut">
-    <a routerLink="/profile" routerLinkActive="active">profile</a>
+    <a
+      routerLink="/jobs/applied-jobs"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Applied Jobs</a
+    >
+    <a
+      routerLink="/jobs/saved-jobs"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Saved Jobs</a
+    >
+    <a
+      routerLink="/jobs/applicants"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Applicants</a
+    >
+    <a
+      routerLink="/profile"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >profile</a
+    >
     <button (click)="logout()">Logout</button>
   </ng-container>
 </nav>

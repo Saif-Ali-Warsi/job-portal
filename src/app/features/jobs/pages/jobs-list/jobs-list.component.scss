@@ -17,3 +17,20 @@
 input {
   height: 28px;
 }
+
+.checkbox {
+  width: auto;
+  margin: 0;
+}
+
+.delete-input {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: auto;
+  margin: 0 0 10px;
+
+  h2 {
+    margin: 0;
+  }
+}

@@ -1,7 +1,7 @@
 {
   "jobs": [
     {
-      "title": "Sr. Angular Developer",
+      "title": "Sr Angular Developer",
       "company": "Google Cloud",
       "location": "Pune, MH",
       "salary": "12.5 LPA",
@@ -9,12 +9,12 @@
       "id": "1"
     },
     {
-      "id": "3",
       "title": "UI Developer",
       "company": "Amazon",
       "location": "Bangalore",
       "salary": "18 LPA",
-      "description": "Frontend UI engineer"
+      "description": "Frontend UI engineer",
+      "id": "3"
     },
     {
       "title": "Backend Developer",
@@ -23,14 +23,6 @@
       "salary": "90k",
       "description": "Experience candidates need",
       "id": "gkZcITW0zbU"
-    },
-    {
-      "title": "a",
-      "company": "a",
-      "location": "a",
-      "salary": "a",
-      "description": "a",
-      "id": "A14HYpKr0gM"
     }
   ],
   "applications": [
