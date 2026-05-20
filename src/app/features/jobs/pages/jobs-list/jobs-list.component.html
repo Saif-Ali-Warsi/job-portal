@@ -22,8 +22,16 @@
   <button routerLink="/jobs/create">Create Job</button>
 </div>
 
+<div>
+  <button (click)="bulkDelete()">Delete Selected</button>
+</div>
+
 <ng-container *ngFor="let job of jobs">
   <div class="job-card">
+    <div class="checkbox">
+      <input type="checkbox" (change)="toggleSelection(job.id)" />
+    </div>
+
     <h2>{{ job.title }}</h2>
     <p>{{ job.company }}</p>
     <p>{{ job.location }}</p>

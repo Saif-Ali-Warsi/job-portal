@@ -17,7 +17,7 @@ export class JobsService {
 
   job$ = this.http.get(this.baseUrl).pipe(
     tap(() => {
-      console.log('API CALL EXECUTED')
+      console.log('API CALL EXECUTED');
     }),
     shareReplay(1)
   )

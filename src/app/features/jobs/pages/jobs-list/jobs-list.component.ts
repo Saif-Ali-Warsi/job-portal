@@ -2,8 +2,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { JobsService } from '../../services/jobs.service';
 import { Job } from '../../models/job.model';
 import { FormControl } from '@angular/forms';
-import { startWith, takeUntil } from 'rxjs/operators';
-import { combineLatest, Subject } from 'rxjs';
+import { combineLatest, Subject, from } from 'rxjs';
+import { startWith, takeUntil, mergeMap } from 'rxjs/operators';
+import { ToastService } from 'src/app/shared/services/toast.service';
 
 
 @Component({
@@ -18,13 +19,15 @@ export class JobsListComponent implements OnInit, OnDestroy {
   jobs: Job[] = [];
   allJobs: Job[] = [];
 
+  selectedJobsIds: number[] = [];
+
   searchControl = new FormControl('');
 
   locationControl = new FormControl('')
 
   companyControl = new FormControl('')
 
-  constructor(private jobService: JobsService) { }
+  constructor(private jobService: JobsService, private toast: ToastService) { }
 
   ngOnInit(): void {
     this.loadJobs();
@@ -90,6 +93,35 @@ export class JobsListComponent implements OnInit, OnDestroy {
       this.loadJobs();
     })
 
+  }
+
+  toggleSelection(id: any) {
+    const exists = this.selectedJobsIds.includes(id);
+
+    if (exists) {
+      this.selectedJobsIds = this.selectedJobsIds.filter(
+        jobId => jobId !== id
+      )
+    } else {
+      this.selectedJobsIds.push(id);
+    }
+  }
+
+  bulkDelete() {
+    if (this.selectedJobsIds.length === 0) {
+      return;
+    }
+
+
+
+    from(this.selectedJobsIds).pipe(
+      mergeMap((id: any) => {
+        return this.jobService.deleteJob(id)
+      })
+    ).subscribe(() => {
+      this.loadJobs();
+      this.toast.show('Selected Jobs Deleted')
+    })
   }
 
   ngOnDestroy(): void {
