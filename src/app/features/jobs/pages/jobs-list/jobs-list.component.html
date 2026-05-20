@@ -19,9 +19,9 @@
     <option value="HCL">HCL</option>
   </select>
 
-  <button routerLink="/jobs/create">Create Job</button>
+  <button routerLink="/jobs/create" *ngIf="isRecruiter">Create Job</button>
   <div>
-    <button (click)="bulkDelete()">Delete Selected</button>
+    <button (click)="bulkDelete()" *ngIf="isRecruiter">Delete Selected</button>
   </div>
 </div>
 
@@ -29,6 +29,7 @@
   <div class="job-card">
     <div class="delete-input">
       <input
+        *ngIf="isRecruiter"
         class="checkbox"
         type="checkbox"
         (change)="toggleSelection(job.id)"
@@ -47,12 +48,14 @@
         View Details
       </button>
       <button
+        *ngIf="isRecruiter"
         class="btn-small no-padding no-border"
         [routerLink]="['/jobs', job.id, 'edit']"
       >
         Edit
       </button>
       <button
+        *ngIf="isRecruiter"
         class="btn-small no-padding no-border danger"
         (click)="deleteJob(job.id)"
       >

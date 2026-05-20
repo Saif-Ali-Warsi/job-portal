@@ -12,9 +12,15 @@ export class NavbarComponent {
 
   currentUser$: Observable<User | null>;
 
+  userRole = '';
+
   constructor(private authService: AuthService) {
 
     this.currentUser$ = this.authService.currentUser;
+
+    this.currentUser$.subscribe(user => {
+      this.userRole = user?.role || ''
+    })
   }
 
   logout() {

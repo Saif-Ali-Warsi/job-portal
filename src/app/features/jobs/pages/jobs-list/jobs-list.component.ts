@@ -5,6 +5,7 @@ import { FormControl } from '@angular/forms';
 import { combineLatest, Subject, from, forkJoin } from 'rxjs';
 import { startWith, takeUntil, mergeMap } from 'rxjs/operators';
 import { ToastService } from 'src/app/shared/services/toast.service';
+import { AuthService } from 'src/app/features/auth/services/auth.service';
 
 
 @Component({
@@ -13,6 +14,8 @@ import { ToastService } from 'src/app/shared/services/toast.service';
   styleUrls: ['./jobs-list.component.scss']
 })
 export class JobsListComponent implements OnInit, OnDestroy {
+
+  isRecruiter = false;
 
   destroy$ = new Subject<void>();
 
@@ -27,9 +30,12 @@ export class JobsListComponent implements OnInit, OnDestroy {
 
   companyControl = new FormControl('')
 
-  constructor(private jobService: JobsService, private toast: ToastService) { }
+  constructor(private authService: AuthService, private jobService: JobsService, private toast: ToastService) { }
 
   ngOnInit(): void {
+    const currentUser = this.authService.currentUser.value;
+    this.isRecruiter = currentUser?.role === 'recruiter';
+
     this.loadJobs();
 
     combineLatest([

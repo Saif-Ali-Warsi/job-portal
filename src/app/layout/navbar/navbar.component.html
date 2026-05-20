@@ -29,6 +29,7 @@
 
   <ng-container *ngIf="currentUser$ | async; else loggedOut">
     <a
+      *ngIf="userRole === 'candidate'"
       routerLink="/jobs/applied-jobs"
       routerLinkActive="active"
       [routerLinkActiveOptions]="{ exact: true }"
@@ -41,6 +42,7 @@
       >Saved Jobs</a
     >
     <a
+      *ngIf="userRole === 'recruiter'"
       routerLink="/jobs/applicants"
       routerLinkActive="active"
       [routerLinkActiveOptions]="{ exact: true }"

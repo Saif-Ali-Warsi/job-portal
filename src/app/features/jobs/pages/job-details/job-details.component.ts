@@ -13,6 +13,8 @@ import { map, exhaustMap, concatMap } from 'rxjs/operators';
 })
 export class JobDetailsComponent implements OnInit {
 
+  isCandidate = false;
+
   applyClick$ = new Subject<void>();
   saveClick$ = new Subject<void>();
 
@@ -27,6 +29,10 @@ export class JobDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    const currentUser = this.authService.currentUser.value;
+
+    this.isCandidate = currentUser?.role === 'candidate';
 
     const jobId = this.route.snapshot.paramMap.get('id');
 

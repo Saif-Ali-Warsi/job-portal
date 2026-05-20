@@ -9,12 +9,13 @@ export class AuthService {
 
   currentUser = new BehaviorSubject<User | null>(null);
 
-  login(email: string, password: string): Observable<User> {
+  login(email: string, password: string, role: 'candidate' | 'recruiter'): Observable<User> {
 
     const fakeUser: User = {
       email,
       password,
-      token: 'fake-jwt-token'
+      token: 'fake-jwt-token',
+      role
     };
 
     localStorage.setItem(

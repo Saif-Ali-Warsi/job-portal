@@ -14,7 +14,8 @@ export class LoginComponent {
 
   loginForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(4)]]
+    password: ['', [Validators.required, Validators.minLength(4)]],
+    role: ['candidate']
   });
 
   onSubmit() {
@@ -25,8 +26,9 @@ export class LoginComponent {
 
     const email = this.loginForm.value.email!;
     const password = this.loginForm.value.password!;
+    const role = this.loginForm.value.role as 'candidate' | 'recruiter';
 
-    this.authService.login(email, password).subscribe(response => {
+    this.authService.login(email, password, role).subscribe(response => {
       console.log(response)
     })
 

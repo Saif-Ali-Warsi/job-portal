@@ -7,7 +7,7 @@
   <p>{{ job.salary }}</p>
   <p>{{ job.description }}</p>
 </div>
-<div class="btn-group">
+<div class="btn-group" *ngIf="isCandidate">
   <button (click)="applyJob()" [disabled]="alreadyApplied">
     {{ alreadyApplied ? "Already Applied" : "Apply Job" }}
   </button>

@@ -1,5 +1,6 @@
 export interface User {
     email: string,
     password: string,
-    token: string
+    token: string,
+    role: 'candidate' | 'recruiter';
 }
