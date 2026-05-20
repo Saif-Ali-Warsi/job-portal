@@ -4,6 +4,21 @@
     [formControl]="searchControl"
     placeholder="Search jobs..."
   />
+
+  <select [formControl]="locationControl">
+    <option value="">All Locations</option>
+    <option value="Pune">Pune</option>
+    <option value="Mumbai">Mumbai</option>
+    <option value="Bangalore">Bangalore</option>
+  </select>
+
+  <select [formControl]="companyControl">
+    <option value="">All Companies</option>
+    <option value="Google">Google</option>
+    <option value="Microsoft">Microsoft</option>
+    <option value="Infosys">Infosys</option>
+  </select>
+
   <button routerLink="/jobs/create">Create Job</button>
 </div>
 

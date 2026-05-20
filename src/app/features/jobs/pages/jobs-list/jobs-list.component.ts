@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { JobsService } from '../../services/jobs.service';
 import { Job } from '../../models/job.model';
 import { FormControl } from '@angular/forms';
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { startWith, takeUntil } from 'rxjs/operators';
+import { combineLatest, Subject } from 'rxjs';
 
 
 @Component({
@@ -10,42 +11,62 @@ import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
   templateUrl: './jobs-list.component.html',
   styleUrls: ['./jobs-list.component.scss']
 })
-export class JobsListComponent implements OnInit {
+export class JobsListComponent implements OnInit, OnDestroy {
+
+  destroy$ = new Subject<void>();
 
   jobs: Job[] = [];
   allJobs: Job[] = [];
 
   searchControl = new FormControl('');
 
+  locationControl = new FormControl('')
+
+  companyControl = new FormControl('')
+
   constructor(private jobService: JobsService) { }
 
   ngOnInit(): void {
     this.loadJobs();
 
-    this.searchControl.valueChanges.pipe(
+    combineLatest([
+      this.searchControl.valueChanges.pipe(
+        startWith('')
+      ),
 
-      debounceTime(500),
+      this.locationControl.valueChanges.pipe(
+        startWith('')
+      ),
 
-      distinctUntilChanged()
+      this.companyControl.valueChanges.pipe(
+        startWith('')
+      )
 
-    ).subscribe(value => {
+    ]).pipe(takeUntil(this.destroy$)).subscribe(([search, location, company]) => {
 
-      const search =
-        value?.toLowerCase() || '';
+      const searchText = search?.toLowerCase() || '';
 
       this.jobs = this.allJobs.filter((job: any) => {
 
+        const matchesSearch = job.title.toLowerCase().includes(searchText)
+
+          ||
+
+          job.company.toLowerCase().includes(searchText) || job.location.toLowerCase().includes(searchText)
+
+        const matchesLocation = !location || job.location === location;
+
+        const matchesCompany = !company || job.company === company;
+
         return (
-          job.title.toLowerCase().includes(search) ||
+          matchesSearch && matchesLocation && matchesCompany
+        )
 
-          job.company.toLowerCase().includes(search) ||
+      })
 
-          job.location.toLowerCase().includes(search)
-        );
+    })
 
-      });
 
-    });
   }
 
   loadJobs() {
@@ -69,6 +90,11 @@ export class JobsListComponent implements OnInit {
       this.loadJobs();
     })
 
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next()
+    this.destroy$.complete()
   }
 
 }

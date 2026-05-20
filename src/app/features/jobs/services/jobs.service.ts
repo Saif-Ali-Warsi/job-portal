@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environment/environment';
 import { Job } from '../models/job.model';
+import { shareReplay, tap } from 'rxjs/operators';
 
 
 @Injectable({
@@ -11,11 +12,19 @@ export class JobsService {
 
   private baseUrl = `${environment.apiUrl}/jobs`
 
+
   constructor(private http: HttpClient) { }
+
+  job$ = this.http.get(this.baseUrl).pipe(
+    tap(() => {
+      console.log('API CALL EXECUTED')
+    }),
+    shareReplay(1)
+  )
 
 
   getJobs() {
-    return this.http.get(this.baseUrl);
+    return this.job$
   }
 
   getJobById(id: string) {

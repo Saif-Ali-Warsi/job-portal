@@ -34,6 +34,15 @@ button {
   border: 1px solid #00ffff;
 }
 
+select {
+  font-size: 14px;
+  color: #00ffff;
+  padding: 8px 10px;
+  background-color: unset;
+  border: 1px solid #00ffff;
+  border-radius: 4px;
+}
+
 .btn-small {
   cursor: pointer;
   font-size: 12px;

@@ -47,6 +47,13 @@
       "candidateName": "hank@gmail.com",
       "appliedAt": "2026-05-18T14:57:46.708Z",
       "id": "uhcHLRZ-NZM"
+    },
+    {
+      "jobId": "1",
+      "candidateEmail": "hank@gmail.com",
+      "candidateName": "hank@gmail.com",
+      "appliedAt": "2026-05-19T04:38:29.726Z",
+      "id": "BNtzxK7z8jM"
     }
   ],
   "savedJobs": [
@@ -61,6 +68,12 @@
       "candidateEmail": "saif@test.com",
       "savedAt": "2026-05-18T14:16:47.787Z",
       "id": "MeXH-CdcxQM"
+    },
+    {
+      "jobId": "1",
+      "candidateEmail": "hank@gmail.com",
+      "savedAt": "2026-05-19T04:38:31.966Z",
+      "id": "V2Mt1mRWt50"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
